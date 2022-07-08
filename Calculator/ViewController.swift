@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var displayLabel: UILabel!
     
-    var isDoneEnteringNumbers : Bool = true
+    private var isDoneEnteringNumbers : Bool = true
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         
