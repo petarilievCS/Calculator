@@ -2,8 +2,7 @@
 //  ViewController.swift
 //  Calculator
 //
-//  Created by Angela Yu on 10/09/2019.
-//  Copyright © 2019 London App Brewery. All rights reserved.
+//  Created by Petar Iliev on 08/07/2022
 //
 
 import UIKit
