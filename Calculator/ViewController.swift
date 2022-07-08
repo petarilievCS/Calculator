@@ -11,18 +11,27 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var displayLabel: UILabel!
     
-    
+    var isDoneEnteringNumbers : Bool = true
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         
-        //What should happen when a non-number button is pressed
+        isDoneEnteringNumbers = true
     
     }
 
-    
     @IBAction func numButtonPressed(_ sender: UIButton) {
         
-        //What should happen when a number is entered into the keypad
+        if let numberValue = sender.currentTitle {
+            
+            // start new number
+            if (isDoneEnteringNumbers) {
+                displayLabel.text = numberValue
+                isDoneEnteringNumbers = false
+                // continue adding numbers
+            } else {
+                displayLabel.text?.append(numberValue)
+            }
+        }
     
     }
 
