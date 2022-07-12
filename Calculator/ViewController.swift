@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         
         isDoneEnteringNumbers = true
+        
+        let number = Double(displayLabel.text!)!
     
     }
 
@@ -32,8 +34,6 @@ class ViewController: UIViewController {
                 displayLabel.text?.append(numberValue)
             }
         }
-    
     }
-
 }
 
