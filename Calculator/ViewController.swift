@@ -12,21 +12,29 @@ class ViewController: UIViewController {
     @IBOutlet weak var displayLabel: UILabel!
     
     private var isDoneEnteringNumbers : Bool = true
+    private var displayedValue : Double {
+        get {
+            guard let currentDisplayValue = Double(displayLabel.text!) else {
+                fatalError("Cannot convert number to Double")
+            }
+            return currentDisplayValue
+        } set {
+            displayLabel.text = String(newValue)
+        }
+    }
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         
         isDoneEnteringNumbers = true
-        
-        let number = Double(displayLabel.text!)!
         let method = sender.currentTitle
         
         // method if-else tree
         if (method == "+/-") {
-            displayLabel.text = String(number * -1)
+            displayedValue = displayedValue * -1
         } else if (method == "AC") {
-            displayLabel.text = "0"
+            displayedValue = 0.0
         } else if (method == "%") {
-            displayLabel.text = String(number / 100.0)
+            displayedValue = displayedValue * 0.01
         }
     
     }
@@ -43,11 +51,7 @@ class ViewController: UIViewController {
             } else {
                 
                 if (numberValue == ".") {
-                    guard let currentDisplayValue = Double(displayLabel.text!) else {
-                        fatalError("Cannot convert number to Double")
-                    }
-                    
-                    let isInteger = floor(currentDisplayValue) == currentDisplayValue
+                    let isInteger = floor(displayedValue) == displayedValue
                     
                     if !isInteger {
                         return
