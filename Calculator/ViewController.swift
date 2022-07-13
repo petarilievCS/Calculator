@@ -41,6 +41,18 @@ class ViewController: UIViewController {
                 isDoneEnteringNumbers = false
                 // continue adding numbers
             } else {
+                
+                if (numberValue == ".") {
+                    guard let currentDisplayValue = Double(displayLabel.text!) else {
+                        fatalError("Cannot convert number to Double")
+                    }
+                    
+                    let isInteger = floor(currentDisplayValue) == currentDisplayValue
+                    
+                    if !isInteger {
+                        return
+                    }
+                }
                 displayLabel.text?.append(numberValue)
             }
         }
