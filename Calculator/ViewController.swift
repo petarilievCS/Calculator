@@ -22,8 +22,10 @@ class ViewController: UIViewController {
         
         // method if-else tree
         if (method == "+/-") {
-            displayLabel.text = String(number * - 1)
-        }
+            displayLabel.text = String(number * -1)
+        } else if (method == "AC") {
+            displayLabel.text = "0"
+        } 
     
     }
 
