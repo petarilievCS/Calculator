@@ -18,6 +18,12 @@ class ViewController: UIViewController {
         isDoneEnteringNumbers = true
         
         let number = Double(displayLabel.text!)!
+        let method = sender.currentTitle
+        
+        // method if-else tree
+        if (method == "+/-") {
+            displayLabel.text = String(number * - 1)
+        }
     
     }
 
