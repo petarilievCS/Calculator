@@ -28,7 +28,11 @@ class ViewController: UIViewController {
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         isDoneEnteringNumbers = true
         let method = sender.currentTitle
-        displayedValue = calcLogic.performCalculation(with: method!, with: displayedValue)
+        
+        guard let result = calcLogic.performCalculation(with: method!, with: displayedValue) else {
+            fatalError("Invalid calculation")
+        }
+        displayedValue = result
     }
 
     @IBAction func numButtonPressed(_ sender: UIButton) {

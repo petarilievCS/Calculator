@@ -10,7 +10,7 @@ import Foundation
 
 class CalculatorLogic {
     
-    func performCalculation(with method: String, with value: Double) -> Double {
+    func performCalculation(with method: String, with value: Double) -> Double? {
         if (method == "+/-") {
             return (value * -1)
         } else if (method == "AC") {
@@ -18,7 +18,7 @@ class CalculatorLogic {
         } else if (method == "%") {
             return (value * 0.01)
         }
-        return 0.0
+        return nil
     }
     
 }
