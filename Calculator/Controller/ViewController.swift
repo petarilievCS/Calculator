@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         }
     }
     
-    let calcLogic = CalculatorLogic()
+    private let calcLogic = CalculatorLogic()
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         isDoneEnteringNumbers = true

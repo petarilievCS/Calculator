@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CalculatorLogic {
+struct CalculatorLogic {
     
     func performCalculation(with method: String, with value: Double) -> Double? {
         if (method == "+/-") {
