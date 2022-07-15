@@ -23,20 +23,12 @@ class ViewController: UIViewController {
         }
     }
     
+    let calcLogic = CalculatorLogic()
+    
     @IBAction func calcButtonPressed(_ sender: UIButton) {
-        
         isDoneEnteringNumbers = true
         let method = sender.currentTitle
-        
-        // method if-else tree
-        if (method == "+/-") {
-            displayedValue = displayedValue * -1
-        } else if (method == "AC") {
-            displayedValue = 0.0
-        } else if (method == "%") {
-            displayedValue = displayedValue * 0.01
-        }
-    
+        displayedValue = calcLogic.performCalculation(with: method!, with: displayedValue)
     }
 
     @IBAction func numButtonPressed(_ sender: UIButton) {
