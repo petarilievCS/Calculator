@@ -10,13 +10,42 @@ import Foundation
 
 struct CalculatorLogic {
     
-    func performCalculation(with method: String, with value: Double) -> Double? {
-        if (method == "+/-") {
+    private var intermediateCalculation: (firstNumber: Double, method: String)?
+    
+    mutating func performCalculation(with method: String, with value: Double) -> Double? {
+        
+        switch method {
+        case "+/-":
             return (value * -1)
-        } else if (method == "AC") {
+        case "AC":
             return 0.0
-        } else if (method == "%") {
+        case "%":
             return (value * 0.01)
+        case "=":
+            return performBinaryCalculation(with: value)
+        default:
+            intermediateCalculation = (value, method)
+        }
+        return nil
+        
+    }
+    
+    private func performBinaryCalculation(with secondNumber: Double) -> Double? {
+        
+        if let firstNumber = intermediateCalculation?.firstNumber, let method = intermediateCalculation?.method {
+            
+            switch method {
+            case "+":
+                return firstNumber + secondNumber
+            case "-":
+                return firstNumber - secondNumber
+            case "×":
+                return firstNumber * secondNumber
+            case "÷":
+                return firstNumber / secondNumber
+            default:
+                return 0.0
+            }
         }
         return nil
     }
