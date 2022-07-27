@@ -1,6 +1,6 @@
 # Overview
 
-iOS application that can be used to perform arithmetic operations on integers and decimal numbers.
+iOS application that can be used to perform arithmetic operations on integers and decimal numbers. The currently supported operations are: addition, subtraction, multiplication, division and negation. 
 
 # Demo
 
